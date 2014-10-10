@@ -58,6 +58,15 @@ ruby_version() {
   fi
 }
 
+virtualenv_name() {
+	if ! [[ -z "$VIRTUAL_ENV" ]]
+	then
+		echo "%{$fg_bold[yellow]%}$(basename $VIRTUAL_ENV)%{$reset_color%} "
+	else
+		echo ""
+	fi
+}
+
 rb_prompt() {
   if ! [[ -z "$(ruby_version)" ]]
   then
@@ -73,7 +82,7 @@ directory_name() {
 
 export PROMPT=$'\n$(rb_prompt)in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
-  export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
+  export RPROMPT="%{$fg_bold[cyan]%}$(virtualenv_name)%{$reset_color%}"
 }
 
 precmd() {
