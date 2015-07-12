@@ -1,0 +1,2 @@
+#compdef keys
+_files -W $HOME/.gnupg -/
