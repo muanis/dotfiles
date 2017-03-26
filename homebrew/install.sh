@@ -13,6 +13,6 @@ then
 fi
 
 # Install homebrew packages
-brew install grc coreutils spark gnupg gnupg2 wget
+brew install grc coreutils spark gnupg gnupg2 wget go
 
 exit 0
